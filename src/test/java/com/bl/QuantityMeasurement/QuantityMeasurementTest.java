@@ -108,7 +108,14 @@ public class QuantityMeasurementTest {
         Feet one= new Feet(0);
         Inch two = new Inch(0);
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
-        Assert.assertFalse(isEqual);
+        Assert.assertTrue(isEqual);
     }
 
+    @Test
+    public void givenInchAndFeet_WhenOne_ShouldReturnFalse() {
+        Inch two = new Inch(1);
+        Feet one= new Feet(1);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertFalse(isEqual);
+    }
 }

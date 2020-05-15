@@ -1,5 +1,7 @@
 package com.bl.QuantityMeasurement.model;
 
+import java.util.Objects;
+
 public class LengthUnit {
     public int length;
     public UnitType unitType;
@@ -11,6 +13,7 @@ public class LengthUnit {
         this.unitType=unitType;
     }
 
+
     public boolean equals(Object o) {
         if(o== null){
             return false;
@@ -18,12 +21,9 @@ public class LengthUnit {
         if(o == this){
             return true;
         }
-        if( this.getClass()!=o.getClass() ) {
-            return false;
-        }
         LengthUnit lengthUnit = (LengthUnit) o;
-        if(this.unitType==lengthUnit.unitType){
-            return this.length == lengthUnit.length;
+        if( this.getClass() == lengthUnit.getClass()) {
+                return this.length == lengthUnit.length;
         }
         if(this.unitType==UnitType.FEET){
             if(lengthUnit.unitType==UnitType.INCH){
