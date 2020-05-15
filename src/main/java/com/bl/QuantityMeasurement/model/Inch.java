@@ -12,6 +12,9 @@ public class Inch{
         if(o== null){
             return false;
         }
+        if(o == this){
+            return true;
+        }
         Inch inch = (Inch) o;
         return length == inch.length;
     }

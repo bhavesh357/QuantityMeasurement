@@ -79,4 +79,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertFalse(isEqual);
     }
+
+    @Test
+    public void givenInchAndInch_WhenSame_ShouldReturnFalse() {
+        Inch one= new Inch(0);
+        boolean isEqual = quantityMeasurement.equalComparator(one, one);
+        Assert.assertTrue(isEqual);
+    }
+
 }
