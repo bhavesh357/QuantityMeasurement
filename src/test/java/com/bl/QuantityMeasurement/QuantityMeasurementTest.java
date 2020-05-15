@@ -103,4 +103,12 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(isEqual);
     }
 
+    @Test
+    public void givenFeetAndInch_WhenZero_ShouldReturnTrue() {
+        Feet one= new Feet(0);
+        Inch two = new Inch(0);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertFalse(isEqual);
+    }
+
 }

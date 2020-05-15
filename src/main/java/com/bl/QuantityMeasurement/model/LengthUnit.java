@@ -25,7 +25,21 @@ public class LengthUnit {
         if(this.unitType==lengthUnit.unitType){
             return this.length == lengthUnit.length;
         }
+        if(this.unitType==UnitType.FEET){
+            if(lengthUnit.unitType==UnitType.INCH){
+                return lengthUnit.length==FeetToInch(this.length);
+            }
+        }
+        if(this.unitType==UnitType.INCH){
+            if(lengthUnit.unitType==UnitType.FEET){
+                return this.length==FeetToInch(lengthUnit.length);
+            }
+        }
         return false;
+    }
+
+    private int FeetToInch(int length) {
+        return length*12;
     }
 
     public int getLength() {
