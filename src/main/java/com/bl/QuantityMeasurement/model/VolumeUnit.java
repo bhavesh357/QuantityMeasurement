@@ -4,7 +4,7 @@ public class VolumeUnit {
     public double volume;
     public VolumeUnit.UnitType unitType;
 
-    public enum UnitType {GALLON, LITRE}
+    public enum UnitType {GALLON, ML, LITRE}
 
     public VolumeUnit(double volume, VolumeUnit.UnitType unitType) {
         this.volume=volume;
@@ -26,13 +26,31 @@ public class VolumeUnit {
             if(volumeUnit.unitType== UnitType.LITRE){
                 return volumeUnit.volume== gallonToLitre(this.volume);
             }
+            if(volumeUnit.unitType== UnitType.ML){
+                return gallonToLitre(this.volume)==mlToLitre(volumeUnit.volume);
+            }
         }
         if(this.unitType== UnitType.LITRE){
             if(volumeUnit.unitType== UnitType.GALLON){
                 return this.volume== gallonToLitre(volumeUnit.volume);
             }
+            if(volumeUnit.unitType== UnitType.ML){
+                return this.volume== mlToLitre(volumeUnit.volume);
+            }
+        }
+        if(this.unitType== UnitType.ML){
+            if(volumeUnit.unitType== UnitType.GALLON){
+                return this.volume== gallonToLitre(volumeUnit.volume);
+            }
+            if(volumeUnit.unitType== UnitType.LITRE){
+                return volumeUnit.volume== mlToLitre(this.volume);
+            }
         }
         return false;
+    }
+
+    private double mlToLitre(double volume) {
+        return volume/1000;
     }
 
     private double gallonToLitre(double volume) {

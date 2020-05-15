@@ -238,5 +238,13 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(isEqual);
     }
 
+    @Test
+    public void givenLitreAndMl_WhenFirstNull_ShouldReturnFalse() {
+        Litre one = new Litre(1);
+        Mililitre two = new Mililitre(1000);
+        boolean isEqual = quantityMeasurement.equalComparator(one,two);
+        Assert.assertTrue(isEqual);
+    }
+
 
 }
