@@ -134,4 +134,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertTrue(isEqual);
     }
+
+    @Test
+    public void givenInchAndFeet_WhenProper_ShouldReturnTrue() {
+        Inch two = new Inch(12);
+        Feet one= new Feet(1);
+        boolean isEqual = quantityMeasurement.equalComparator(two, one);
+        Assert.assertTrue(isEqual);
+    }
 }
