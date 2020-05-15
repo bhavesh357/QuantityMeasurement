@@ -1,9 +1,6 @@
 package com.bl.QuantityMeasurement;
 
-import com.bl.QuantityMeasurement.model.Centimeters;
-import com.bl.QuantityMeasurement.model.Feet;
-import com.bl.QuantityMeasurement.model.Inch;
-import com.bl.QuantityMeasurement.model.Yard;
+import com.bl.QuantityMeasurement.model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -232,4 +229,14 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addLength(one, two);
         Assert.assertEquals(3,addition,0.0);
     }
+
+    @Test
+    public void givenGallonAndLitre_WhenFirstNull_ShouldReturnFalse() {
+        Gallon one = new Gallon(1);
+        Litre two = new Litre(3.78);
+        boolean isEqual = quantityMeasurement.equalComparator(one,two);
+        Assert.assertTrue(isEqual);
+    }
+
+
 }

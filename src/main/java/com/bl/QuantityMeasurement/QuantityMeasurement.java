@@ -1,8 +1,6 @@
 package com.bl.QuantityMeasurement;
 
-import com.bl.QuantityMeasurement.model.Feet;
-import com.bl.QuantityMeasurement.model.Inch;
-import com.bl.QuantityMeasurement.model.LengthUnit;
+import com.bl.QuantityMeasurement.model.*;
 
 public class QuantityMeasurement {
     public boolean equalComparator(LengthUnit one, LengthUnit two) {
@@ -14,6 +12,13 @@ public class QuantityMeasurement {
 
     public double addLength(LengthUnit one, LengthUnit two) {
         return one.addition(two);
+    }
+
+    public boolean equalComparator(VolumeUnit one, VolumeUnit two) {
+        if(one == null){
+            return false;
+        }
+        return one.equals(two);
     }
 }
 
