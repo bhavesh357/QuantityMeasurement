@@ -11,5 +11,9 @@ public class QuantityMeasurement {
         }
         return one.equals(two);
     }
+
+    public double addLength(LengthUnit one, LengthUnit two) {
+        return one.addition(two);
+    }
 }
 

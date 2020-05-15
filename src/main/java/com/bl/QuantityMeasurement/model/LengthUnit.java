@@ -3,6 +3,26 @@ package com.bl.QuantityMeasurement.model;
 public class LengthUnit {
     public int length;
     public UnitType unitType;
+
+    public double addition(LengthUnit o) {
+        return getInInch(this)+getInInch(o);
+    }
+
+    private double getInInch(LengthUnit o) {
+        switch (o.unitType){
+            case CM:
+                return cmToInch(o.length);
+            case FEET:
+                return feetToInch(o.length);
+            case INCH:
+                return o.length;
+            case YARD:
+                return yardToInch(o.length);
+            default:
+                return 0;
+        }
+    }
+
     public enum UnitType {INCH, YARD, CM, FEET}
 
 

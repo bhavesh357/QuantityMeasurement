@@ -200,4 +200,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertTrue(isEqual);
     }
+
+    @Test
+    public void givenInchAndInch_WhenProper_ShouldReturnAddition() {
+        Inch one = new Inch(2);
+        Inch two= new Inch(2);
+        double addition = quantityMeasurement.addLength(one, two);
+        Assert.assertEquals(4,addition,0.0);
+    }
 }
