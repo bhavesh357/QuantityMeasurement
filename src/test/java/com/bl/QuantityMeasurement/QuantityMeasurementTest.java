@@ -102,4 +102,5 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertFalse(isEqual);
     }
+
 }
