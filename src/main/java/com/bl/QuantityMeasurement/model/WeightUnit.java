@@ -3,11 +3,29 @@ package com.bl.QuantityMeasurement.model;
 public class WeightUnit {
     public double weight;
     public UnitType unitType;
+
     public enum UnitType {GRAM, TON, KG}
 
     public WeightUnit(Double weight,UnitType unitType) {
         this.weight=weight;
         this.unitType=unitType;
+    }
+
+    public double addition(WeightUnit two) {
+        return getInKg(this)+getInKg(two);
+    }
+
+    private double getInKg(WeightUnit weight) {
+        switch (weight.unitType){
+            case KG:
+                return weight.weight;
+            case TON:
+                return tonToKg(weight.weight);
+            case GRAM:
+                return gramToKg(weight.weight);
+            default:
+                return 0;
+        }
     }
 
     public boolean equals(Object o) {

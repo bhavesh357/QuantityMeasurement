@@ -31,5 +31,9 @@ public class QuantityMeasurement {
         }
         return one.equals(two);
     }
+
+    public double addWeight(WeightUnit one, WeightUnit two) {
+        return one.addition(two);
+    }
 }
 

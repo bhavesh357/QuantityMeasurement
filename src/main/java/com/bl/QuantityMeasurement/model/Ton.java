@@ -2,7 +2,7 @@ package com.bl.QuantityMeasurement.model;
 
 public class Ton extends WeightUnit{
 
-    public Ton(Double weight) {
+    public Ton(double weight) {
         super(weight, UnitType.TON);
     }
 

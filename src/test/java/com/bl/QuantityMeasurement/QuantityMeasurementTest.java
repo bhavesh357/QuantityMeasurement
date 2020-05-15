@@ -272,11 +272,17 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTonAndKg_WhenProper_ShouldReturnTrue() {
-        Ton one = new Ton(1.0);
+        Ton one = new Ton(1);
         Kilogram two = new Kilogram(1000);
         boolean isEqual = quantityMeasurement.equalComparator(one,two);
         Assert.assertTrue(isEqual);
     }
 
-
+    @Test
+    public void givenTonAndGram_WhenProper_ShouldReturnAddition() {
+        Ton one = new Ton(1);
+        Gram two= new Gram(1000);
+        double addition = quantityMeasurement.addWeight(one, two);
+        Assert.assertEquals(1001,addition,0.03);
+    }
 }
