@@ -285,4 +285,12 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addWeight(one, two);
         Assert.assertEquals(1001,addition,0.03);
     }
+
+    @Test
+    public void givenFarenheitAndCelcius_WhenProper_ShouldReturnTrue() {
+        Farenheit one = new Farenheit(212);
+        Celcius two = new Celcius(100);
+        boolean isEqual = quantityMeasurement.equalComparator(one,two);
+        Assert.assertTrue(isEqual);
+    }
 }

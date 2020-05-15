@@ -35,5 +35,12 @@ public class QuantityMeasurement {
     public double addWeight(WeightUnit one, WeightUnit two) {
         return one.addition(two);
     }
+
+    public boolean equalComparator(TempUnit one, TempUnit two) {
+        if(one == null){
+            return false;
+        }
+        return one.equals(two);
+    }
 }
 
