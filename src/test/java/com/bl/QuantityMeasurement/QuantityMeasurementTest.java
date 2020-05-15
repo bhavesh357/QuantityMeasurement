@@ -40,4 +40,13 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, one);
         Assert.assertTrue(isEqual);
     }
+
+    @Test
+    public void givenFeetAndFeet_WhenTypeSame_ShouldReturnFalse() {
+        Feet one= new Feet(0);
+        Feet two = new Feet(0);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertTrue(isEqual);
+    }
+
 }

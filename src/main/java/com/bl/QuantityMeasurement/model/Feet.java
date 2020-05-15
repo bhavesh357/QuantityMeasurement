@@ -20,6 +20,9 @@ public class Feet {
         if(o == this){
             return true;
         }
+        if(this.getClass() != o.getClass()){
+            return false;
+        }
         Feet feet = (Feet) o;
         return length == feet.length;
     }
