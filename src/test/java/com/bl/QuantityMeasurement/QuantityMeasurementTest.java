@@ -270,5 +270,13 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(isEqual);
     }
 
+    @Test
+    public void givenTonAndKg_WhenProper_ShouldReturnTrue() {
+        Ton one = new Ton(1.0);
+        Kilogram two = new Kilogram(1000);
+        boolean isEqual = quantityMeasurement.equalComparator(one,two);
+        Assert.assertTrue(isEqual);
+    }
+
 
 }
