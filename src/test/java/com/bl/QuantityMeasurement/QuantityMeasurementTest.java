@@ -36,14 +36,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndFeet_WhenSame_ShouldReturnFalse() {
+    public void givenFeetAndFeet_WhenSame_ShouldReturnTrue() {
         Feet one= new Feet(0);
         boolean isEqual = quantityMeasurement.equalComparator(one, one);
         Assert.assertTrue(isEqual);
     }
 
     @Test
-    public void givenFeetAndFeet_WhenTypeSame_ShouldReturnFalse() {
+    public void givenFeetAndFeet_WhenTypeSame_ShouldReturnTrue() {
         Feet one= new Feet(0);
         Feet two = new Feet(0);
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
@@ -81,14 +81,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInchAndInch_WhenSame_ShouldReturnFalse() {
+    public void givenInchAndInch_WhenSame_ShouldReturnTrue() {
         Inch one= new Inch(0);
         boolean isEqual = quantityMeasurement.equalComparator(one, one);
         Assert.assertTrue(isEqual);
     }
 
     @Test
-    public void givenInchAndInch_WhenTypeSame_ShouldReturnFalse() {
+    public void givenInchAndInch_WhenTypeSame_ShouldReturnTrue() {
         Inch one= new Inch(0);
         Inch two = new Inch(0);
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
