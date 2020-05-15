@@ -9,7 +9,9 @@ public class Inch{
 
     @Override
     public boolean equals(Object o) {
-
+        if(o== null){
+            return false;
+        }
         Inch inch = (Inch) o;
         return length == inch.length;
     }
