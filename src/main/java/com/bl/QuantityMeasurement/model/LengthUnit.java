@@ -1,11 +1,9 @@
 package com.bl.QuantityMeasurement.model;
 
-import java.util.Objects;
-
 public class LengthUnit {
     public int length;
     public UnitType unitType;
-    public enum UnitType {INCH, FEET}
+    public enum UnitType {INCH, YARD, FEET}
 
 
     public LengthUnit(int length, UnitType unitType) {
@@ -27,18 +25,25 @@ public class LengthUnit {
         }
         if(this.unitType==UnitType.FEET){
             if(lengthUnit.unitType==UnitType.INCH){
-                return lengthUnit.length==FeetToInch(this.length);
+                return lengthUnit.length== feetToInch(this.length);
+            }
+            if(lengthUnit.unitType==UnitType.YARD){
+                return yardToInch(lengthUnit.length)== feetToInch(this.length);
             }
         }
         if(this.unitType==UnitType.INCH){
             if(lengthUnit.unitType==UnitType.FEET){
-                return this.length==FeetToInch(lengthUnit.length);
+                return this.length== feetToInch(lengthUnit.length);
             }
         }
         return false;
     }
 
-    private int FeetToInch(int length) {
+    private int yardToInch(int length) {
+        return length*36;
+    }
+
+    private int feetToInch(int length) {
         return length*12;
     }
 
