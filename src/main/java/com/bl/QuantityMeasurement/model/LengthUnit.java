@@ -35,6 +35,9 @@ public class LengthUnit {
             if(lengthUnit.unitType==UnitType.FEET){
                 return this.length== feetToInch(lengthUnit.length);
             }
+            if(lengthUnit.unitType==UnitType.YARD){
+                return yardToInch(lengthUnit.length)== this.length;
+            }
         }
         return false;
     }
