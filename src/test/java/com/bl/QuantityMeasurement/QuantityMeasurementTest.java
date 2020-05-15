@@ -183,4 +183,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertTrue(isEqual);
     }
+
+    @Test
+    public void givenYardAndFeet_WhenProper_ShouldReturnTrue() {
+        Yard one = new Yard(1);
+        Feet two= new Feet(3);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertTrue(isEqual);
+    }
 }
