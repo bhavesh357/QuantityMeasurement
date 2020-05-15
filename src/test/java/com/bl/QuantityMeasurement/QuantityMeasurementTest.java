@@ -26,4 +26,11 @@ public class QuantityMeasurementTest {
         Assert.assertFalse(isEqual);
     }
 
+    @Test
+    public void givenFeetAndFeet_WhenSecondNull_ShouldReturnFalse() {
+        Feet one= new Feet(0);
+        Feet two = null;
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertFalse(isEqual);
+    }
 }
