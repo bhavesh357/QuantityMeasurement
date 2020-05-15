@@ -24,5 +24,12 @@ public class QuantityMeasurement {
     public double addVolume(VolumeUnit one, VolumeUnit two) {
         return one.addition(two);
     }
+
+    public boolean equalComparator(WeightUnit one, WeightUnit two) {
+        if(one == null){
+            return false;
+        }
+        return one.equals(two);
+    }
 }
 
