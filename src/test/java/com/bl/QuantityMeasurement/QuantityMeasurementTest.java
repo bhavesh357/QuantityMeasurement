@@ -95,4 +95,11 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(isEqual);
     }
 
+    @Test
+    public void givenInchAndInch_WhenDiffLength_ShouldReturnFalse() {
+        Inch one= new Inch(0);
+        Inch two = new Inch(10);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertFalse(isEqual);
+    }
 }
