@@ -254,6 +254,14 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(7.57,addition,0.03);
     }
 
+    @Test
+    public void givenLitreAndMl_WhenProper_ShouldReturnAddition() {
+        Mililitre two = new Mililitre(1000);
+        Litre one= new Litre(1);
+        double addition = quantityMeasurement.addVolume(one, two);
+        Assert.assertEquals(2,addition,0.03);
+    }
+
 
 
 
