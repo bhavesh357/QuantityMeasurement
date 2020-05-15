@@ -1,6 +1,7 @@
 package com.bl.QuantityMeasurement;
 
 import com.bl.QuantityMeasurement.model.Feet;
+import com.bl.QuantityMeasurement.model.Inch;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,5 +56,11 @@ public class QuantityMeasurementTest {
         Feet two = new Feet(10);
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertFalse(isEqual);
+    }
+
+    @Test
+    public void givenInchAndInch_WhenZero_ShouldReturnTrue() {
+        boolean isEqual = quantityMeasurement.equalComparator(new Inch(0), new Inch(0));
+        Assert.assertTrue(isEqual);
     }
 }
