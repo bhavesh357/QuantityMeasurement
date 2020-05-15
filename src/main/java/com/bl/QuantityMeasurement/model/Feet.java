@@ -17,6 +17,9 @@ public class Feet {
         if(o== null){
             return false;
         }
+        if(o == this){
+            return true;
+        }
         Feet feet = (Feet) o;
         return length == feet.length;
     }
