@@ -1,14 +1,16 @@
 package com.bl.QuantityMeasurement;
 
+import com.bl.QuantityMeasurement.model.Feet;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class QuantityMeasurementTest {
 
     @Test
-    public void givenFeetAndInches_WhenZero_ShouldReturnTrue() {
+    public void givenFeetAndFeet_WhenZero_ShouldReturnTrue() {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
-        boolean isEqual = quantityMeasurement.compareFeetAndInches(0, 0);
+        boolean isEqual = quantityMeasurement.compareFeetAndInches(new Feet(0), new Feet(0));
         Assert.assertTrue(isEqual);
     }
+
 }
