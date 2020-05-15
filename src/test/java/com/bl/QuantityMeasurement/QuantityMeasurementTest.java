@@ -208,4 +208,12 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addLength(one, two);
         Assert.assertEquals(4,addition,0.0);
     }
+
+    @Test
+    public void givenFeetAndInch_WhenProper_ShouldReturnAddition() {
+        Feet one = new Feet(1);
+        Inch two= new Inch(2);
+        double addition = quantityMeasurement.addLength(one, two);
+        Assert.assertEquals(14,addition,0.0);
+    }
 }
