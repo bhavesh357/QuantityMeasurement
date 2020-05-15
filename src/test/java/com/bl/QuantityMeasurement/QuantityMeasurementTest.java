@@ -224,4 +224,12 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addLength(one, two);
         Assert.assertEquals(24,addition,0.0);
     }
+
+    @Test
+    public void givenInchAndCm_WhenProper_ShouldReturnAddition() {
+        Inch one = new Inch(2);
+        Centimeters two= new Centimeters(2.5);
+        double addition = quantityMeasurement.addLength(one, two);
+        Assert.assertEquals(3,addition,0.0);
+    }
 }

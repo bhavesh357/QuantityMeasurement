@@ -1,8 +1,13 @@
 package com.bl.QuantityMeasurement.model;
 
 public class LengthUnit {
-    public int length;
+    public double length;
     public UnitType unitType;
+
+    public LengthUnit(double length, UnitType unitType) {
+        this.length=length;
+        this.unitType=unitType;
+    }
 
     public double addition(LengthUnit o) {
         return getInInch(this)+getInInch(o);
@@ -73,19 +78,16 @@ public class LengthUnit {
         return false;
     }
 
-    private int cmToInch(int length) {
-        return (int) (length/2.5);
+    private double cmToInch(double length) {
+        return (length/2.5);
     }
 
-    private int yardToInch(int length) {
+    private double yardToInch(double length) {
         return length*36;
     }
 
-    private int feetToInch(int length) {
+    private double feetToInch(double length) {
         return length*12;
     }
 
-    public int getLength() {
-        return length;
-    }
 }
