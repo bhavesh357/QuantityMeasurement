@@ -216,4 +216,12 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addLength(one, two);
         Assert.assertEquals(14,addition,0.0);
     }
+
+    @Test
+    public void givenFeetAndFeet_WhenProper_ShouldReturnAddition() {
+        Feet one = new Feet(1);
+        Feet two= new Feet(1);
+        double addition = quantityMeasurement.addLength(one, two);
+        Assert.assertEquals(24,addition,0.0);
+    }
 }
