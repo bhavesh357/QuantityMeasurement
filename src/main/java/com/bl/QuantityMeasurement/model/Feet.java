@@ -14,6 +14,9 @@ public class Feet {
 
     @Override
     public boolean equals(Object o) {
+        if(o== null){
+            return false;
+        }
         Feet feet = (Feet) o;
         return length == feet.length;
     }
