@@ -49,4 +49,11 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(isEqual);
     }
 
+    @Test
+    public void givenFeetAndFeet_WhenDiffLength_ShouldReturnFalse() {
+        Feet one= new Feet(0);
+        Feet two = new Feet(10);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertFalse(isEqual);
+    }
 }
