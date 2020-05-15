@@ -20,5 +20,9 @@ public class QuantityMeasurement {
         }
         return one.equals(two);
     }
+
+    public double addVolume(VolumeUnit one, VolumeUnit two) {
+        return one.addition(two);
+    }
 }
 

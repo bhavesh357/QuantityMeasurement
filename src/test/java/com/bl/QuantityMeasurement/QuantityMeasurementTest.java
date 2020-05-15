@@ -231,7 +231,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenGallonAndLitre_WhenFirstNull_ShouldReturnFalse() {
+    public void givenGallonAndLitre_WhenFirstNull_ShouldReturnTrue() {
         Gallon one = new Gallon(1);
         Litre two = new Litre(3.78);
         boolean isEqual = quantityMeasurement.equalComparator(one,two);
@@ -239,12 +239,22 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLitreAndMl_WhenFirstNull_ShouldReturnFalse() {
+    public void givenLitreAndMl_WhenFirstNull_ShouldReturnTrue() {
         Litre one = new Litre(1);
         Mililitre two = new Mililitre(1000);
         boolean isEqual = quantityMeasurement.equalComparator(one,two);
         Assert.assertTrue(isEqual);
     }
+
+    @Test
+    public void givenGallonAndLitre_WhenProper_ShouldReturnAddition() {
+        Gallon one = new Gallon(1);
+        Litre two= new Litre(3.78);
+        double addition = quantityMeasurement.addVolume(one, two);
+        Assert.assertEquals(7.57,addition,0.03);
+    }
+
+
 
 
 }

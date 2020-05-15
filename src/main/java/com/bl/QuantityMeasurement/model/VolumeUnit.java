@@ -11,6 +11,23 @@ public class VolumeUnit {
         this.unitType=unitType;
     }
 
+    public double addition(VolumeUnit o) {
+        return getInLitre(this)+getInLitre(o);
+    }
+
+    private double getInLitre(VolumeUnit o) {
+        switch (o.unitType){
+            case GALLON:
+                return gallonToLitre(o.volume);
+            case ML:
+                return mlToLitre(o.volume);
+            case LITRE:
+                return o.volume;
+            default:
+                return 0;
+        }
+    }
+
     public boolean equals(Object o) {
         if(o== null){
             return false;
