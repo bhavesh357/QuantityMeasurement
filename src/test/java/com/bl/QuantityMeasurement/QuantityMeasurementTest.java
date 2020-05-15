@@ -1,5 +1,6 @@
 package com.bl.QuantityMeasurement;
 
+import com.bl.QuantityMeasurement.model.Centimeters;
 import com.bl.QuantityMeasurement.model.Feet;
 import com.bl.QuantityMeasurement.model.Inch;
 import com.bl.QuantityMeasurement.model.Yard;
@@ -188,6 +189,14 @@ public class QuantityMeasurementTest {
     public void givenYardAndFeet_WhenProper_ShouldReturnTrue() {
         Yard one = new Yard(1);
         Feet two= new Feet(3);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertTrue(isEqual);
+    }
+
+    @Test
+    public void givenInchAndCm_WhenProper_ShouldReturnTrue() {
+        Inch one = new Inch(2);
+        Centimeters two= new Centimeters(5);
         boolean isEqual = quantityMeasurement.equalComparator(one, two);
         Assert.assertTrue(isEqual);
     }

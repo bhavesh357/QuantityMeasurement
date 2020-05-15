@@ -3,7 +3,7 @@ package com.bl.QuantityMeasurement.model;
 public class LengthUnit {
     public int length;
     public UnitType unitType;
-    public enum UnitType {INCH, YARD, FEET}
+    public enum UnitType {INCH, YARD, CM, FEET}
 
 
     public LengthUnit(int length, UnitType unitType) {
@@ -38,6 +38,9 @@ public class LengthUnit {
             if(lengthUnit.unitType==UnitType.YARD){
                 return yardToInch(lengthUnit.length)== this.length;
             }
+            if(lengthUnit.unitType==UnitType.CM){
+                return this.length== cmToInch(lengthUnit.length);
+            }
         }
         if(this.unitType==UnitType.YARD){
             if(lengthUnit.unitType==UnitType.INCH){
@@ -48,6 +51,10 @@ public class LengthUnit {
             }
         }
         return false;
+    }
+
+    private int cmToInch(int length) {
+        return (int) (length/2.5);
     }
 
     private int yardToInch(int length) {
