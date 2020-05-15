@@ -126,4 +126,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(two, one);
         Assert.assertFalse(isEqual);
     }
+
+    @Test
+    public void givenFeetAndInch_WhenProper_ShouldReturnTrue() {
+        Feet one= new Feet(1);
+        Inch two = new Inch(12);
+        boolean isEqual = quantityMeasurement.equalComparator(one, two);
+        Assert.assertTrue(isEqual);
+    }
 }
