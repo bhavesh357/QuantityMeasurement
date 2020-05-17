@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class VolumeUnit {
+public class VolumeUnit implements Unit{
     public double volume;
     public VolumeUnit.UnitType unitType;
 

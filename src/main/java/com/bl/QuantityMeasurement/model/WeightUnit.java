@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class WeightUnit {
+public class WeightUnit implements Unit{
     public double weight;
     public UnitType unitType;
 

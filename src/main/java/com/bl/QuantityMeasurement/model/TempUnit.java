@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class TempUnit {
+public class TempUnit implements Unit{
     public double temp;
     public TempUnit.UnitType unitType;
 

@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class LengthUnit {
+public class LengthUnit implements Unit{
     public double length;
     public UnitType unitType;
 
