@@ -11,8 +11,8 @@ public class LengthUnit implements Unit{
     @Override
     public double addition(Unit o) {
         if (o.getClass().getSuperclass() == LengthUnit.class){
-            LengthUnit newunit = (LengthUnit) o;
-            return getInInch(this)+getInInch(newunit);
+            LengthUnit newUnit = (LengthUnit) o;
+            return getInInch(this)+getInInch(newUnit);
         }
         return 0;
     }

@@ -13,8 +13,8 @@ public class WeightUnit implements Unit{
     @Override
     public double addition(Unit o) {
         if (o.getClass().getSuperclass() == WeightUnit.class){
-            WeightUnit newunit = (WeightUnit) o;
-            return getInKg(this)+getInKg(newunit);
+            WeightUnit newUnit = (WeightUnit) o;
+            return getInKg(this)+getInKg(newUnit);
         }
         return 0;
     }
