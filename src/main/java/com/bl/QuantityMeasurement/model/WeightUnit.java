@@ -10,11 +10,14 @@ public class WeightUnit implements Unit{
         this.weight=weight;
         this.unitType=unitType;
     }
-
-    public double addition(WeightUnit two) {
-        return getInKg(this)+getInKg(two);
+    @Override
+    public double addition(Unit o) {
+        if (o.getClass().getSuperclass() == WeightUnit.class){
+            WeightUnit newunit = (WeightUnit) o;
+            return getInKg(this)+getInKg(newunit);
+        }
+        return 0;
     }
-
     private double getInKg(WeightUnit weight) {
         switch (weight.unitType){
             case KG:

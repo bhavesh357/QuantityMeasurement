@@ -11,8 +11,13 @@ public class VolumeUnit implements Unit{
         this.unitType=unitType;
     }
 
-    public double addition(VolumeUnit o) {
-        return getInLitre(this)+getInLitre(o);
+    @Override
+    public double addition(Unit o) {
+        if (o.getClass().getSuperclass() == VolumeUnit.class){
+            VolumeUnit newunit = (VolumeUnit) o;
+            return getInLitre(this)+getInLitre(newunit);
+        }
+        return 0;
     }
 
     private double getInLitre(VolumeUnit o) {

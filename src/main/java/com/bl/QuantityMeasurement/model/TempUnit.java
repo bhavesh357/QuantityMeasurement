@@ -4,6 +4,11 @@ public class TempUnit implements Unit{
     public double temp;
     public TempUnit.UnitType unitType;
 
+    @Override
+    public double addition(Unit two) {
+        return 0;
+    }
+
     public enum UnitType {C, F}
 
     public TempUnit(double temp, UnitType unitType) {

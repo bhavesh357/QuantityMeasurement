@@ -9,10 +9,10 @@ public class QuantityMeasurement {
         }
         return one.equals(two);
     }
-    //public double addition(Unit one, Unit two) {
-      //  return one.addition(two);
-    //}
-
+    public double addition(Unit one, Unit two) {
+      return one.addition(two);
+    }
+/*
     public double addLength(LengthUnit one, LengthUnit two) {
         return one.addition(two);
     }
@@ -25,5 +25,6 @@ public class QuantityMeasurement {
     public double addWeight(WeightUnit one, WeightUnit two) {
         return one.addition(two);
     }
+ */
 }
 

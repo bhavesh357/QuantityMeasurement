@@ -202,7 +202,7 @@ public class QuantityMeasurementTest {
     public void givenInchAndInch_WhenProper_ShouldReturnAddition() {
         Inch firstUnit = new Inch(2);
         Inch secondUnit= new Inch(2);
-        double addition = quantityMeasurement.addLength(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(4,addition,0.0);
     }
 
@@ -210,7 +210,7 @@ public class QuantityMeasurementTest {
     public void givenFeetAndInch_WhenProper_ShouldReturnAddition() {
         Feet firstUnit = new Feet(1);
         Inch secondUnit= new Inch(2);
-        double addition = quantityMeasurement.addLength(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(14,addition,0.0);
     }
 
@@ -218,7 +218,7 @@ public class QuantityMeasurementTest {
     public void givenFeetAndFeet_WhenProper_ShouldReturnAddition() {
         Feet firstUnit = new Feet(1);
         Feet secondUnit= new Feet(1);
-        double addition = quantityMeasurement.addLength(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(24,addition,0.0);
     }
 
@@ -226,7 +226,7 @@ public class QuantityMeasurementTest {
     public void givenInchAndCm_WhenProper_ShouldReturnAddition() {
         Inch firstUnit = new Inch(2);
         Centimeters secondUnit= new Centimeters(2.5);
-        double addition = quantityMeasurement.addLength(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(3,addition,0.0);
     }
 
@@ -250,7 +250,7 @@ public class QuantityMeasurementTest {
     public void givenGallonAndLitre_WhenProper_ShouldReturnAddition() {
         Gallon firstUnit = new Gallon(1);
         Litre secondUnit= new Litre(3.78);
-        double addition = quantityMeasurement.addVolume(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(7.57,addition,0.03);
     }
 
@@ -258,7 +258,7 @@ public class QuantityMeasurementTest {
     public void givenLitreAndMl_WhenProper_ShouldReturnAddition() {
         Mililitre secondUnit = new Mililitre(1000);
         Litre firstUnit= new Litre(1);
-        double addition = quantityMeasurement.addVolume(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(2,addition,0.03);
     }
 
@@ -282,7 +282,7 @@ public class QuantityMeasurementTest {
     public void givenTonAndGram_WhenProper_ShouldReturnAddition() {
         Ton firstUnit = new Ton(1);
         Gram secondUnit= new Gram(1000);
-        double addition = quantityMeasurement.addWeight(firstUnit, secondUnit);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(1001,addition,0.03);
     }
 

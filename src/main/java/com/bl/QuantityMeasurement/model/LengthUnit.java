@@ -8,9 +8,13 @@ public class LengthUnit implements Unit{
         this.length=length;
         this.unitType=unitType;
     }
-
-    public double addition(LengthUnit o) {
-        return getInInch(this)+getInInch(o);
+    @Override
+    public double addition(Unit o) {
+        if (o.getClass().getSuperclass() == LengthUnit.class){
+            LengthUnit newunit = (LengthUnit) o;
+            return getInInch(this)+getInInch(newunit);
+        }
+        return 0;
     }
 
     private double getInInch(LengthUnit o) {
