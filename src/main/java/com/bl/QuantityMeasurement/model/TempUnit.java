@@ -1,13 +1,8 @@
 package com.bl.QuantityMeasurement.model;
 
-public class TempUnit implements Unit{
+public class TempUnit extends Unit {
     public double temp;
     public TempUnit.UnitType unitType;
-
-    @Override
-    public double addition(Unit two) {
-        return 0;
-    }
 
     public enum UnitType {C, F}
 

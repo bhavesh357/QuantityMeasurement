@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class VolumeUnit implements Unit{
+public class VolumeUnit extends Unit {
     public double volume;
     public VolumeUnit.UnitType unitType;
 
@@ -11,16 +11,7 @@ public class VolumeUnit implements Unit{
         this.unitType=unitType;
     }
 
-    @Override
-    public double addition(Unit o) {
-        if (o.getClass().getSuperclass() == VolumeUnit.class){
-            VolumeUnit newUnit = (VolumeUnit) o;
-            return getInLitre(this)+getInLitre(newUnit);
-        }
-        return 0;
-    }
-
-    private double getInLitre(VolumeUnit o) {
+    public static double getInLitre(VolumeUnit o) {
         switch (o.unitType){
             case GALLON:
                 return gallonToLitre(o.volume);
@@ -71,11 +62,11 @@ public class VolumeUnit implements Unit{
         return false;
     }
 
-    private double mlToLitre(double volume) {
+    private static double mlToLitre(double volume) {
         return volume/1000;
     }
 
-    private double gallonToLitre(double volume) {
+    private static double gallonToLitre(double volume) {
         return volume*3.78;
     }
 }

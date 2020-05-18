@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class LengthUnit implements Unit{
+public class LengthUnit extends Unit {
     public double length;
     public UnitType unitType;
 
@@ -8,28 +8,20 @@ public class LengthUnit implements Unit{
         this.length=length;
         this.unitType=unitType;
     }
-    @Override
-    public double addition(Unit o) {
-        if (o.getClass().getSuperclass() == LengthUnit.class){
-            LengthUnit newUnit = (LengthUnit) o;
-            return getInInch(this)+getInInch(newUnit);
-        }
-        return 0;
-    }
 
-    private double getInInch(LengthUnit o) {
-        switch (o.unitType){
-            case CM:
-                return cmToInch(o.length);
-            case FEET:
-                return feetToInch(o.length);
-            case INCH:
-                return o.length;
-            case YARD:
-                return yardToInch(o.length);
-            default:
-                return 0;
-        }
+    static double getInInch(LengthUnit o) {
+            switch (o.unitType) {
+                case CM:
+                    return cmToInch(o.length);
+                case FEET:
+                    return feetToInch(o.length);
+                case INCH:
+                    return o.length;
+                case YARD:
+                    return yardToInch(o.length);
+                default:
+                    return 0;
+            }
     }
 
     public enum UnitType {INCH, YARD, CM, FEET}
@@ -82,15 +74,15 @@ public class LengthUnit implements Unit{
         return false;
     }
 
-    private double cmToInch(double length) {
+    private static double cmToInch(double length) {
         return (length/2.5);
     }
 
-    private double yardToInch(double length) {
+    private static double yardToInch(double length) {
         return length*36;
     }
 
-    private double feetToInch(double length) {
+    private static double feetToInch(double length) {
         return length*12;
     }
 

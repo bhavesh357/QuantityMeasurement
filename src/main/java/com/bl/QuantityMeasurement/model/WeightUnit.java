@@ -1,6 +1,6 @@
 package com.bl.QuantityMeasurement.model;
 
-public class WeightUnit implements Unit{
+public class WeightUnit extends Unit {
     public double weight;
     public UnitType unitType;
 
@@ -10,15 +10,8 @@ public class WeightUnit implements Unit{
         this.weight=weight;
         this.unitType=unitType;
     }
-    @Override
-    public double addition(Unit o) {
-        if (o.getClass().getSuperclass() == WeightUnit.class){
-            WeightUnit newUnit = (WeightUnit) o;
-            return getInKg(this)+getInKg(newUnit);
-        }
-        return 0;
-    }
-    private double getInKg(WeightUnit weight) {
+
+    static double getInKg(WeightUnit weight) {
         switch (weight.unitType){
             case KG:
                 return weight.weight;
@@ -69,11 +62,11 @@ public class WeightUnit implements Unit{
         return false;
     }
 
-    private double tonToKg(double weight) {
+    private static double tonToKg(double weight) {
         return weight*1000;
     }
 
-    private double gramToKg(double weight) {
+    private static double gramToKg(double weight) {
         return weight/1000;
     }
 }
