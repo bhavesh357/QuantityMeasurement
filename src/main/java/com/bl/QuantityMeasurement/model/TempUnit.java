@@ -11,32 +11,18 @@ public class TempUnit extends Unit {
         this.unitType = unitType;
     }
 
-
-    public boolean equals(Object o) {
-        if(o== null){
-            return false;
+    static double getInCel(TempUnit o){
+        switch (o.unitType){
+            case C:
+                return o.temp;
+            case F:
+                return farToCel(o.temp);
+            default:
+                return 0;
         }
-        if(o == this){
-            return true;
-        }
-        TempUnit tempUnit = (TempUnit) o;
-        if( this.getClass() == tempUnit.getClass()) {
-            return this.temp == tempUnit.temp;
-        }
-        if(this.unitType== UnitType.F){
-            if (tempUnit.unitType==UnitType.C) {
-                return tempUnit.temp == farToCel(this.temp);
-            }
-        }
-        if(this.unitType== UnitType.C){
-            if(tempUnit.unitType== UnitType.F){
-                return this.temp== farToCel(tempUnit.temp);
-            }
-        }
-        return false;
     }
 
-    private double farToCel(double temp) {
+    private static double farToCel(double temp) {
         double v = ((temp - 32) / 9) * 5;
         return v;
     }

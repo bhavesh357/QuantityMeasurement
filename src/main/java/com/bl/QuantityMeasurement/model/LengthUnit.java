@@ -32,48 +32,6 @@ public class LengthUnit extends Unit {
         this.unitType=unitType;
     }
 
-
-    public boolean equals(Object o) {
-        if(o== null){
-            return false;
-        }
-        if(o == this){
-            return true;
-        }
-        LengthUnit lengthUnit = (LengthUnit) o;
-        if( this.getClass() == lengthUnit.getClass()) {
-                return this.length == lengthUnit.length;
-        }
-        if(this.unitType==UnitType.FEET){
-            if(lengthUnit.unitType==UnitType.INCH){
-                return lengthUnit.length== feetToInch(this.length);
-            }
-            if(lengthUnit.unitType==UnitType.YARD){
-                return yardToInch(lengthUnit.length)== feetToInch(this.length);
-            }
-        }
-        if(this.unitType==UnitType.INCH){
-            if(lengthUnit.unitType==UnitType.FEET){
-                return this.length== feetToInch(lengthUnit.length);
-            }
-            if(lengthUnit.unitType==UnitType.YARD){
-                return yardToInch(lengthUnit.length)== this.length;
-            }
-            if(lengthUnit.unitType==UnitType.CM){
-                return this.length== cmToInch(lengthUnit.length);
-            }
-        }
-        if(this.unitType==UnitType.YARD){
-            if(lengthUnit.unitType==UnitType.INCH){
-                return lengthUnit.length== yardToInch(this.length);
-            }
-            if(lengthUnit.unitType==UnitType.FEET){
-                return yardToInch(this.length)== feetToInch(lengthUnit.length);
-            }
-        }
-        return false;
-    }
-
     private static double cmToInch(double length) {
         return (length/2.5);
     }
