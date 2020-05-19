@@ -12,33 +12,50 @@ public class LengthUnit extends Unit {
         super(length,unitType, UnitClass.LENGTH);
     }
 
-    static double getInInch(LengthUnit o) {
-        if (o.size <0){
+    /**
+     * method to get in base unit
+     * @param unit
+     * @return unit in inch
+     */
+    static double getInInch(LengthUnit unit) {
+        if (unit.size <0){
             throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
         }else {
-            switch (o.unitType) {
+            switch (unit.unitType) {
                 case CM:
-                    return cmToInch(o.size);
+                    return cmToInch(unit.size);
                 case FEET:
-                    return feetToInch(o.size);
+                    return feetToInch(unit.size);
                 case INCH:
-                    return o.size;
+                    return unit.size;
                 default:
-                    return yardToInch(o.size);
+                    return yardToInch(unit.size);
             }
         }
     }
 
 
-
+    /**
+     * method to get length in cm
+     * @param length
+     * @return length in cm
+     */
     private static double cmToInch(double length) {
         return (length/2.5);
     }
-
+    /**
+     * method to get length in yard
+     * @param length
+     * @return length in yard
+     */
     private static double yardToInch(double length) {
         return length*36;
     }
-
+    /**
+     * method to get length in feet
+     * @param length
+     * @return length in feet
+     */
     private static double feetToInch(double length) {
         return length*12;
     }

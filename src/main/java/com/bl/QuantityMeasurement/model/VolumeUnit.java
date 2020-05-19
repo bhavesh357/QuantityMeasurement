@@ -7,18 +7,22 @@ public class VolumeUnit extends Unit {
     public VolumeUnit(double volume, VolumeUnit.UnitType unitType) {
         super(volume,unitType,UnitClass.VOLUME);
     }
-
-    public static double getInLitre(VolumeUnit o) {
-        if (o.size <0){
+    /**
+     * method to get in base unit
+     * @param unit
+     * @return unit in litre
+     */
+    public static double getInLitre(VolumeUnit unit) {
+        if (unit.size <0){
             throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
         }else {
-        switch (o.unitType) {
+        switch (unit.unitType) {
             case GALLON:
-                return gallonToLitre(o.size);
+                return gallonToLitre(unit.size);
             case ML:
-                return mlToLitre(o.size);
+                return mlToLitre(unit.size);
             default:
-                return o.size;
+                return unit.size;
         }
     }
     }

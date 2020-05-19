@@ -8,57 +8,83 @@ import static com.bl.QuantityMeasurement.model.VolumeUnit.getInLitre;
 import static com.bl.QuantityMeasurement.model.WeightUnit.getInKg;
 
 public class Unit {
-    public double size;
-    public UnitType unitType;
-    public UnitClass superClass;
+    public double size;// to store size
+    public UnitType unitType;// to store unit type
+    public UnitClass superClass;//to store  parent unit type
 
+    /**
+     *
+     * @param size
+     * @param unitType
+     * @param superClass
+     */
     public Unit(double size, UnitType unitType, UnitClass superClass) {
         this.size = size;
         this.unitType = unitType;
         this.superClass = superClass;
     }
 
-    public double addition(Unit o){
-        if (this.superClass!=o.superClass){
+    /**
+     * method to call addition of two unit
+     * @param unit
+     * @return total size
+     */
+    public double addition(Unit unit){
+        if (this.superClass!=unit.superClass){
             throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.DIFFERENT_UNIT);
         }
-        return getInStandard(this)+getInStandard(o);
+        return getInStandard(this)+getInStandard(unit);
     }
 
-    public boolean equals(Unit o){
-        if(o== null){
+    /**
+     * method to compare units
+     * @param unit
+     * @return if equals or not
+     */
+    public boolean equals(Unit unit){
+        if(unit== null){
             return false;
         }
-        if(o == this){
+        if(unit == this){
             return true;
         }
-        if(o.getClass().getSuperclass() == this.getClass().getSuperclass()) {
-            return getInStandard(this) == getInStandard(o);
+        if(unit.getClass().getSuperclass() == this.getClass().getSuperclass()) {
+            return getInStandard(this) == getInStandard(unit);
         }
         return false;
     }
 
-    private double getInStandard(Unit o) {
-        switch (o.superClass){
+    /**
+     * method to get size in base
+     * @param unit
+     * @return unit size in base
+     */
+    private double getInStandard(Unit unit) {
+        switch (unit.superClass){
             case LENGTH:
-                LengthUnit lengthUnit = (LengthUnit) o;
+                LengthUnit lengthUnit = (LengthUnit) unit;
                 return getInInch(lengthUnit);
             case WEIGHT:
-                WeightUnit weightUnit = (WeightUnit) o;
+                WeightUnit weightUnit = (WeightUnit) unit;
                 return getInKg(weightUnit);
             case VOLUME:
-                VolumeUnit volumeUnit = (VolumeUnit) o;
+                VolumeUnit volumeUnit = (VolumeUnit) unit;
                 return getInLitre(volumeUnit);
             default:
-                TempUnit tempUnit = (TempUnit) o;
+                TempUnit tempUnit = (TempUnit) unit;
                 return getInCel(tempUnit);
         }
     }
 
-
+    /**
+     * to store parent unit type
+     */
     public enum UnitClass {
         LENGTH,WEIGHT,TEMP,VOLUME
     }
 
+    /**
+     * to store unit type
+     */
     public enum UnitType {INCH, YARD, CM, FEET,C, F,GRAM, TON, KG,GALLON, ML, LITRE}
 }
