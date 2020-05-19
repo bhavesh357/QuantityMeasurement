@@ -34,10 +34,9 @@ public class Unit {
         }else if(classUnit == VolumeUnit.class){
             VolumeUnit newUnit = (VolumeUnit) o;
             return getInLitre(newUnit);
-        }else if(classUnit == TempUnit.class){
+        }else{
             TempUnit newUnit = (TempUnit) o;
             return getInCel(newUnit);
         }
-        return 0;
     }
 }

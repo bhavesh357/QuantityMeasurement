@@ -1,5 +1,7 @@
 package com.bl.QuantityMeasurement.model;
 
+import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
+
 public class WeightUnit extends Unit {
     public double weight;
     public UnitType unitType;
@@ -12,15 +14,17 @@ public class WeightUnit extends Unit {
     }
 
     static double getInKg(WeightUnit weight) {
-        switch (weight.unitType){
-            case KG:
-                return weight.weight;
-            case TON:
-                return tonToKg(weight.weight);
-            case GRAM:
-                return gramToKg(weight.weight);
-            default:
-                return 0;
+        if (weight.weight <0){
+            throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
+        }else {
+            switch (weight.unitType) {
+                case TON:
+                    return tonToKg(weight.weight);
+                case GRAM:
+                    return gramToKg(weight.weight);
+                default:
+                    return weight.weight;
+            }
         }
     }
 

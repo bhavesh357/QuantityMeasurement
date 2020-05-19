@@ -1,5 +1,7 @@
 package com.bl.QuantityMeasurement.model;
 
+import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
+
 public class VolumeUnit extends Unit {
     public double volume;
     public VolumeUnit.UnitType unitType;
@@ -12,16 +14,18 @@ public class VolumeUnit extends Unit {
     }
 
     public static double getInLitre(VolumeUnit o) {
-        switch (o.unitType){
+        if (o.volume <0){
+            throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
+        }else {
+        switch (o.unitType) {
             case GALLON:
                 return gallonToLitre(o.volume);
             case ML:
                 return mlToLitre(o.volume);
-            case LITRE:
-                return o.volume;
             default:
-                return 0;
+                return o.volume;
         }
+    }
     }
 
     private static double mlToLitre(double volume) {

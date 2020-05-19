@@ -1,5 +1,6 @@
 package com.bl.QuantityMeasurement;
 
+import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
 import com.bl.QuantityMeasurement.model.*;
 import org.junit.Assert;
 import org.junit.Before;
@@ -55,6 +56,18 @@ public class QuantityMeasurementTest {
         Feet secondUnit = new Feet(10);
         boolean isEqual = quantityMeasurement.equalComparator(firstUnit, secondUnit);
         Assert.assertFalse(isEqual);
+    }
+
+    @Test
+    public void givenFeetAndFeet_WhenNegativeLength_ShouldReturnFalse() {
+        try{
+        Feet firstUnit= new Feet(-10);
+        Feet secondUnit = new Feet(10);
+        boolean isEqual = quantityMeasurement.equalComparator(firstUnit, secondUnit);
+        Assert.assertFalse(isEqual);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE,e.type);
+        }
     }
 
     @Test
@@ -253,6 +266,17 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(7.57,addition,0.03);
     }
+    @Test
+    public void givenGallonAndLitre_WhenImProper_ShouldReturnAddition() {
+        try {
+            Gallon firstUnit = new Gallon(-1);
+            Litre secondUnit= new Litre(3.78);
+            double addition = quantityMeasurement.addition(firstUnit, secondUnit);
+            Assert.assertEquals(7.57,addition,0.03);
+        }catch (QuantityMeasurementException e){
+            Assert.assertEquals(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE,e.type);
+        }
+    }
 
     @Test
     public void givenLitreAndMl_WhenProper_ShouldReturnAddition() {
@@ -279,6 +303,26 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenInchAndKg_WhenProper_ShouldReturnFalse() {
+        Inch firstUnit = new Inch(1);
+        Kilogram secondUnit = new Kilogram(1000);
+        boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
+        Assert.assertFalse(isEqual);
+    }
+
+    @Test
+    public void givenTonAndKg_WhenImProper_ShouldReturnTrue() {
+        try{
+        Ton firstUnit = new Ton(1);
+        Kilogram secondUnit = new Kilogram(-1000);
+        boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
+        Assert.assertTrue(isEqual);
+        } catch (QuantityMeasurementException e){
+            Assert.assertEquals(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE,e.type);
+        }
+    }
+
+    @Test
     public void givenTonAndGram_WhenProper_ShouldReturnAddition() {
         Ton firstUnit = new Ton(1);
         Gram secondUnit= new Gram(1000);
@@ -290,6 +334,14 @@ public class QuantityMeasurementTest {
     public void givenFarenheitAndCelcius_WhenProper_ShouldReturnTrue() {
         Farenheit firstUnit = new Farenheit(212);
         Celcius secondUnit = new Celcius(100);
+        boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
+        Assert.assertTrue(isEqual);
+    }
+
+    @Test
+    public void givenFarenheitAndCelcius_WhenImProper_ShouldReturnTrue() {
+        Farenheit firstUnit = new Farenheit(-148);
+        Celcius secondUnit = new Celcius(-100);
         boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
         Assert.assertTrue(isEqual);
     }

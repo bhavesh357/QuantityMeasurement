@@ -1,5 +1,10 @@
 package com.bl.QuantityMeasurement.model;
 
+import com.bl.QuantityMeasurement.QuantityMeasurement;
+import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
+
+import javax.lang.model.type.ErrorType;
+
 public class LengthUnit extends Unit {
     public double length;
     public UnitType unitType;
@@ -10,6 +15,9 @@ public class LengthUnit extends Unit {
     }
 
     static double getInInch(LengthUnit o) {
+        if (o.length <0){
+            throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
+        }else {
             switch (o.unitType) {
                 case CM:
                     return cmToInch(o.length);
@@ -17,11 +25,10 @@ public class LengthUnit extends Unit {
                     return feetToInch(o.length);
                 case INCH:
                     return o.length;
-                case YARD:
-                    return yardToInch(o.length);
                 default:
-                    return 0;
+                    return yardToInch(o.length);
             }
+        }
     }
 
     public enum UnitType {INCH, YARD, CM, FEET}

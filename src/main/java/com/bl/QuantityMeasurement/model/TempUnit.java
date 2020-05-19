@@ -13,12 +13,10 @@ public class TempUnit extends Unit {
 
     static double getInCel(TempUnit o){
         switch (o.unitType){
-            case C:
-                return o.temp;
             case F:
                 return farToCel(o.temp);
             default:
-                return 0;
+                return o.temp;
         }
     }
 
