@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Feet extends LengthUnit{
 
     public Feet(int length) {
-        super(length,LengthUnit.UnitType.FEET);
+        super(length,UnitType.FEET);
     }
 
 }

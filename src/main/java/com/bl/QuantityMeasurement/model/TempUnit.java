@@ -1,22 +1,16 @@
 package com.bl.QuantityMeasurement.model;
 
 public class TempUnit extends Unit {
-    public double temp;
-    public TempUnit.UnitType unitType;
-
-    public enum UnitType {C, F}
 
     public TempUnit(double temp, UnitType unitType) {
-        this.temp = temp;
-        this.unitType = unitType;
+        super(temp,unitType,UnitClass.TEMP);
     }
-
     static double getInCel(TempUnit o){
         switch (o.unitType){
             case F:
-                return farToCel(o.temp);
+                return farToCel(o.size);
             default:
-                return o.temp;
+                return o.size;
         }
     }
 

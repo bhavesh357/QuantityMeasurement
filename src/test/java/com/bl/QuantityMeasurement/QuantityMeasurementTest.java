@@ -287,6 +287,30 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenInchAndMl_WhenProper_ShouldReturnAddition() {
+        try {
+            Inch secondUnit = new Inch(1000);
+            Litre firstUnit= new Litre(1);
+            double addition = quantityMeasurement.addition(firstUnit, secondUnit);
+        }catch (QuantityMeasurementException e){
+            Assert.assertEquals(QuantityMeasurementException.ErrorType.DIFFERENT_UNIT,e.type);
+        }
+
+    }
+
+    @Test
+    public void givenInchAndMl_WhenNull_ShouldReturnAddition() {
+        try {
+            Mililitre secondUnit = null;
+            Litre firstUnit= new Litre(1);
+            double addition = quantityMeasurement.addition(firstUnit, secondUnit);
+        }catch (QuantityMeasurementException e){
+            Assert.assertEquals(QuantityMeasurementException.ErrorType.NULL_UNIT,e.type);
+        }
+
+    }
+
+    @Test
     public void givenKgAndGram_WhenProper_ShouldReturnTrue() {
         Kilogram firstUnit = new Kilogram(1);
         Gram secondUnit = new Gram(1000);

@@ -3,27 +3,22 @@ package com.bl.QuantityMeasurement.model;
 import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
 
 public class VolumeUnit extends Unit {
-    public double volume;
-    public VolumeUnit.UnitType unitType;
-
-    public enum UnitType {GALLON, ML, LITRE}
 
     public VolumeUnit(double volume, VolumeUnit.UnitType unitType) {
-        this.volume=volume;
-        this.unitType=unitType;
+        super(volume,unitType,UnitClass.VOLUME);
     }
 
     public static double getInLitre(VolumeUnit o) {
-        if (o.volume <0){
+        if (o.size <0){
             throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
         }else {
         switch (o.unitType) {
             case GALLON:
-                return gallonToLitre(o.volume);
+                return gallonToLitre(o.size);
             case ML:
-                return mlToLitre(o.volume);
+                return mlToLitre(o.size);
             default:
-                return o.volume;
+                return o.size;
         }
     }
     }

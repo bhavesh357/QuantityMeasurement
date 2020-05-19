@@ -6,5 +6,7 @@ public class QuantityMeasurementException extends RuntimeException {
         type = negativeValue;
     }
 
-    public enum ErrorType {NEGATIVE_VALUE}
+    public enum ErrorType {
+        NEGATIVE_VALUE,NULL_UNIT, DIFFERENT_UNIT;
+    }
 }

@@ -3,27 +3,21 @@ package com.bl.QuantityMeasurement.model;
 import com.bl.QuantityMeasurement.exception.QuantityMeasurementException;
 
 public class WeightUnit extends Unit {
-    public double weight;
-    public UnitType unitType;
-
-    public enum UnitType {GRAM, TON, KG}
 
     public WeightUnit(Double weight,UnitType unitType) {
-        this.weight=weight;
-        this.unitType=unitType;
+        super(weight,unitType,UnitClass.WEIGHT);
     }
-
     static double getInKg(WeightUnit weight) {
-        if (weight.weight <0){
+        if (weight.size <0){
             throw new QuantityMeasurementException(QuantityMeasurementException.ErrorType.NEGATIVE_VALUE);
         }else {
             switch (weight.unitType) {
                 case TON:
-                    return tonToKg(weight.weight);
+                    return tonToKg(weight.size);
                 case GRAM:
-                    return gramToKg(weight.weight);
+                    return gramToKg(weight.size);
                 default:
-                    return weight.weight;
+                    return weight.size;
             }
         }
     }
