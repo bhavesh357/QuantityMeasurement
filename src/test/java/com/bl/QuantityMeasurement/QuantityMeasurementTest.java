@@ -6,6 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class QuantityMeasurementTest {
     public QuantityMeasurement quantityMeasurement;
     @Before
@@ -226,6 +229,15 @@ public class QuantityMeasurementTest {
         double addition = quantityMeasurement.addition(firstUnit, secondUnit);
         Assert.assertEquals(14,addition,0.0);
     }
+    //Testing using Mocking
+    @Test
+    public void givenFeetAndInch_WhenMocked_ShouldReturnAddition() {
+        Feet firstUnit = mock(Feet.class);
+        Inch secondUnit= new Inch(2);
+        when(firstUnit.addition(secondUnit)).thenReturn(14.0);
+        double addition = quantityMeasurement.addition(firstUnit, secondUnit);
+        Assert.assertEquals(14,addition,0.0);
+    }
 
     @Test
     public void givenFeetAndFeet_WhenProper_ShouldReturnAddition() {
@@ -250,11 +262,12 @@ public class QuantityMeasurementTest {
         boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
         Assert.assertTrue(isEqual);
     }
-
+    //Testing using mockito
     @Test
     public void givenLitreAndMl_WhenProper_ShouldReturnTrue() {
-        Litre firstUnit = new Litre(1);
+        Litre firstUnit = mock(Litre.class);
         Mililitre secondUnit = new Mililitre(1000);
+        when(firstUnit.equals(secondUnit)).thenReturn(true);
         boolean isEqual = quantityMeasurement.equalComparator(firstUnit,secondUnit);
         Assert.assertTrue(isEqual);
     }
